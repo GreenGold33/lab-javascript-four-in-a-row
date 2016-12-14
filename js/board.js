@@ -21,11 +21,15 @@ Board.prototype.insertTile = function (column) {
 
     i--;
   }
-  if (row) {
+  if (row || row === 0) {
     this.matrix[row][column] = this.turn;
+    return [row, parseInt(column)];
   }
-  else {console.log("Column filled up!!!");}
-  return [row, parseInt(column)];
+  else {
+    console.log("Column filled up!!!");
+    return false;
+  }
+
 };
 
 Board.prototype._getColumn = function(column){

@@ -2,9 +2,11 @@ var board =  new Board();
 
 function addTile (event) {
   var position = board.insertTile(event.currentTarget.dataset.column);
-  renderTile(position);
-  board.checkWinner();
-  board.takeTurns();
+  if(position) {
+    renderTile(position);
+    board.checkWinner();
+    board.takeTurns();
+  }
 }
 
 function renderTile (position) {
