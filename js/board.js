@@ -12,7 +12,6 @@ function Board () {
 }
 
 Board.prototype.insertTile = function (column) {
-  console.log("Inserting tile");
   var row  = null;
   var cells = this._getColumn(column);
 
@@ -22,7 +21,10 @@ Board.prototype.insertTile = function (column) {
 
     i--;
   }
-  if (row) {this.matrix[row][column] = this.turn;}
+  if (row) {
+    this.matrix[row][column] = this.turn;
+    this.turn = this.turn === this.player1 ? this.player2 : this.player1;
+  }
   else {console.log("Column filled up!!!");}
   return [row, parseInt(column)];
 };
