@@ -1,7 +1,7 @@
 function Board () {
-  this.matrix = [["red", null, null, null, null, null, null],
+  this.matrix = [[null, null, null, null, null, null, null],
                  [null, null, null, null, null, null, null],
-                 [null, null, null, null, null, "green", null],
+                 [null, null, null, null, null, null, null],
                  [null, null, null, null, null, null, null],
                  [null, null, null, null, null, null, null],
                  [null, null, null, null, null, null, null]];
@@ -23,7 +23,6 @@ Board.prototype.insertTile = function (column) {
   }
   if (row) {
     this.matrix[row][column] = this.turn;
-    this.turn = this.turn === this.player1 ? this.player2 : this.player1;
   }
   else {console.log("Column filled up!!!");}
   return [row, parseInt(column)];
@@ -91,4 +90,8 @@ Board.prototype.checkWinner = function() {
   if(!this.winner) this._checkDownLeft();
   if(!this.winner) this._checkDownRight();
   if (this.winner) {console.log("The winner is " + this.winner);}
+};
+
+Board.prototype.takeTurns = function () {
+  this.turn = this.turn === this.player1 ? this.player2 : this.player1;
 };
