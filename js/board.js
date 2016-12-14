@@ -44,48 +44,58 @@ Board.prototype._getColumn = function(column){
 
 Board.prototype.chkLine = function(a,b,c,d) {
    // Check first cell non-zero and all cells match
+   var z = ((a !== 0) && (a ===b) && (a === c) && (a === d));
    return ((a !== 0) && (a ===b) && (a === c) && (a === d));
 };
 
 Board.prototype._checkDownRight = function() {
-  for (var row = 0; row < 3; row++)
-    for (var column = 0; column < 4; column++)
+  for (var row = 0; row < 3; row++) {
+    for (var column = 0; column < 4; column++) {
       if (this.chkLine(this.matrix[row][column],
                        this.matrix[row + 1][column + 1],
                        this.matrix[row + 2][column + 2],
-                       this.matrix[row + 3][column + 3]))
-      this.winner = this.matrix[row][column];
+                       this.matrix[row + 3][column + 3])){
+        this.winner = this.matrix[row][column];
+      }
+    }
+  }
 };
 
 Board.prototype._checkDownLeft = function() {
-  for (row = 3; row < 6; row++)
-    for (column = 0; column < 4; column++)
+  for (var row = 3; row < 6; row++)
+    for (var column = 0; column < 4; column++)
       if (this.chkLine(this.matrix[row][column],
                        this.matrix[row - 1][column + 1],
                        this.matrix[row - 2][column + 2],
-                       this.matrix[row - 3][column + 3]))
-
-      this.winner = this.matrix[row][column];
+                       this.matrix[row - 3][column + 3])){
+        this.winner = this.matrix[row][column];
+      }
 };
 
 Board.prototype._checkDown = function() {
-  for (row = 0; row < 3; row++)
-    for (column = 0; column < 7; column++)
+  for (var row = 0; row < 3; row++) {
+    for (var column = 0; column < 7; column++) {
       if (this.chkLine(this.matrix[row][column],
                        this.matrix[row + 1][column],
                        this.matrix[row + 2][column],
-                       this.matrix[row + 3][column]))
-      this.winner = this.matrix[row][column];
+                       this.matrix[row + 3][column])){
+        this.winner = this.matrix[row][column];
+      }
+      if(this.winner){return;}
+    }
+  }
 };
 
 Board.prototype._checkRight = function() {
-  for (row = 0; row < 6; row++)
-    for (column = 0; column < 4; column++)
+  for (var row = 0; row < 6; row++)
+    for (var column = 0; column < 4; column++)
       if (this.chkLine(this.matrix[row][column],
                        this.matrix[row][column + 1],
                        this.matrix[row][column + 2],
-                       this.matrix[row][column + 3]))
-      this.winner = this.matrix[row][column];
+                       this.matrix[row][column + 3])){
+        this.winner = this.matrix[row][column];
+        console.log(this.winner);
+      }
 };
 
 Board.prototype.checkWinner = function() {
