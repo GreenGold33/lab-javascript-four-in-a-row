@@ -6,8 +6,8 @@ html, body {
   padding: 0;
 }
 html {
-  background: url(../img/background.jpg);
-  background-size: cover;
+  /*background: url(../img/background.jpg);*/
+  /*background-size: cover;*/
 }
 header {
   padding-bottom: 40px;
@@ -63,10 +63,23 @@ h1 {
   text-shadow: 1px 1px 3px #000;
 }
 
-.red-tile {
+.tile-red {
   background: #F5002D;
 }
 
-.green-tile {
+.tile-green {
   background-color: #00760D;
+}
+
+.button {
+  background-color: goldenrod;
+  border-radius: 50%;
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin: 10px 45px;
+}
+
+#buttons {
+  margin: 10px;
 }

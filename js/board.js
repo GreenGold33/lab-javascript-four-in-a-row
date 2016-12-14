@@ -1,14 +1,18 @@
 function Board () {
-  this.matrix = [[null, null, null, null, null, null, null],
+  this.matrix = [["red", null, null, null, null, null, null],
                  [null, null, null, null, null, null, null],
-                 [null, null, null, null, "blue", null, null],
-                 [null, null, null, "blue", "blue", null, null],
-                 [null, null, "blue", "blue", "blue", null, null],
-                 [null, "blue", "red", "red", "red", null, null]];
-  this.winner = null;
+                 [null, null, null, null, null, "green", null],
+                 [null, null, null, null, null, null, null],
+                 [null, null, null, null, null, null, null],
+                 [null, null, null, null, null, null, null]];
+  this.winner  = null;
+  this.player1 = "red";
+  this.player2 = "green";
+  this.turn    = this.player1;
 }
 
-Board.prototype.insertTile = function (color, column) {
+Board.prototype.insertTile = function (column) {
+  console.log("Inserting tile");
   var row  = null;
   var cells = this._getColumn(column);
 
@@ -18,8 +22,19 @@ Board.prototype.insertTile = function (color, column) {
 
     i--;
   }
-  if (row) {this.matrix[row][column] = color;}
+  if (row) {this.matrix[row][column] = this.turn;}
   else {console.log("Column filled up!!!");}
+  return [row, parseInt(column)];
+};
+
+Board.prototype._getColumn = function(column){
+    var cells = [];
+
+    this.matrix.forEach(function(row) {
+        cells.push(row[column]);
+    });
+
+  return cells;
 };
 
 Board.prototype.chkLine = function(a,b,c,d) {
@@ -75,6 +90,3 @@ Board.prototype.checkWinner = function() {
   if(!this.winner) this._checkDownRight();
   if (this.winner) {console.log("The winner is " + this.winner);}
 };
-
-var b =  new Board();
-console.log(b.checkWinner());
