@@ -1,10 +1,10 @@
 function Board () {
   this.matrix = [[null, null, null, null, null, null, null],
                  [null, null, null, null, null, null, null],
-                 [null, null, null, null, null, null, null],
-                 [null, null, null, null, null, null, null],
-                 [null, null, null, null, null, null, null],
-                 [null, null, null, null, null, null, null]];
+                 [null, null, null, null, "blue", null, null],
+                 [null, null, null, "blue", "blue", null, null],
+                 [null, null, "blue", "blue", "blue", null, null],
+                 [null, "blue", "red", "red", "red", null, null]];
   this.winner = null;
 }
 
@@ -46,7 +46,6 @@ Board.prototype._checkDownLeft = function() {
                        this.matrix[row - 3][column + 3]))
 
       this.winner = this.matrix[row][column];
-
 };
 
 Board.prototype._checkDown = function() {
@@ -56,7 +55,6 @@ Board.prototype._checkDown = function() {
                        this.matrix[row + 1][column],
                        this.matrix[row + 2][column],
                        this.matrix[row + 3][column]))
-
       this.winner = this.matrix[row][column];
 };
 
@@ -71,11 +69,11 @@ Board.prototype._checkRight = function() {
 };
 
 Board.prototype.checkWinner = function() {
-  this._checkRight();
-  this._checkDown();
-  this._checkDownLeft();
-  this._checkDownRight();
-  if (this.winner)  {console.log("The winner is " + this.winner);}
+  if(!this.winner) this._checkRight();
+  if(!this.winner) this._checkDown();
+  if(!this.winner) this._checkDownLeft();
+  if(!this.winner) this._checkDownRight();
+  if (this.winner) {console.log("The winner is " + this.winner);}
 };
 
 var b =  new Board();

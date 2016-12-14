@@ -1,0 +1,72 @@
+html, body {
+  color: #3c5566;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: url(../img/background.jpg);
+  background-size: cover;
+}
+header {
+  padding-bottom: 40px;
+}
+h1 {
+  font-size: 80px;
+  letter-spacing: 2px;
+  text-align: right;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+}
+#container {
+  margin: 40px auto;
+  width: 870px;
+}
+#main {
+  position: relative;
+}
+#game-board {
+  background: #6C6C7D;
+  border-radius: 25px;
+  padding: 15px;
+}
+#game-board {
+  box-shadow: 1px 1px 10px 0 #999;
+}
+.clearfix {
+  clear: both;
+}
+.row {
+  height: 100%;
+  width: 100%;
+}
+.cell,
+.tile {
+  background: rgba(225, 226, 241, 0.5);
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 100px;
+  float: left;
+  margin: 10px;
+  width: 100px;
+}
+.tile {
+  background: rgba(225, 226, 241, 0.35);
+  box-sizing: border-box;
+  color: #fff;
+  float: none;
+  font-size: 55px;
+  font-weight: bold;
+  padding-top: 30px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.red-tile {
+  background: #F5002D;
+}
+
+.green-tile {
+  background-color: #00760D;
+}
