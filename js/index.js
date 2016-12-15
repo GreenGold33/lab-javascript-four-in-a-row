@@ -4,7 +4,7 @@ function addTile (event) {
   var position = board.insertTile(event.currentTarget.dataset.column);
   if(position) {
     renderTile(position);
-    board.checkWinner();
+    gameStatus();
     board.takeTurns();
   }
 }
@@ -15,6 +15,16 @@ function renderTile (position) {
   var cellElement= rowElement.getElementsByTagName("div")[position[1]];
   cellElement.classList += (" tile-" + board.turn);
 
+}
+
+function gameStatus () {
+  var winner = board.checkWinner();
+  console.log(winner);
+  if (winner) {
+    var winMessage = document.getElementById('game-over');
+    winMessage.childNodes[3].append(winner.toUpperCase() + "   WINS!!!");
+    document.getElementById("game-over").className = "";
+  }
 }
 
 window.onload = function () {

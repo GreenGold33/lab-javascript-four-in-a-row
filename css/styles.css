@@ -1,18 +1,15 @@
-html, body {
+html {
+  background-image: url(../img/background.jpg);
+  background-size: cover;
   color: #3c5566;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
   margin: 0;
   padding: 0;
 }
-html {
-  /*background: url(../img/background.jpg);*/
-  /*background-size: cover;*/
-}
-header {
-  padding-bottom: 40px;
-}
+
 h1 {
+  color: #fff;
   font-size: 80px;
   letter-spacing: 2px;
   text-align: right;
@@ -72,14 +69,56 @@ h1 {
 }
 
 .button {
-  background-color: goldenrod;
+  background-color: #ffea00;
   border-radius: 50%;
-  display: inline-block;
+  box-shadow: 0px 0px 15px 13px rgba(255,234,0,1);
+  display: inline-block;;
   height: 22px;
   width: 22px;
   margin: 10px 45px;
 }
 
+.button:hover {
+  background-color: #ffea8f;
+  box-shadow: 0px 0px 10px 5px rgba(255,234,143,1);
+}
+
 #buttons {
   margin: 10px;
+}
+
+#game-over {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  width: 830px;
+  height: 780px;
+  position: absolute;
+  float: left;
+  left: -1000px;
+  top: 10px;
+  animation: slide 0.5s forwards;
+
+}
+
+#game-over.hide {
+  display: none;
+}
+
+#game-over p {
+  font-size: 150px;
+  font-weight: bolder;
+}
+
+#game-over img {
+  margin-left: 250px;
+  margin-top: 20px;
+  width: 300px;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 20px; }
+}
+
+@keyframes slide {
+    100% { left: 20px; }
 }

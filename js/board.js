@@ -26,7 +26,6 @@ Board.prototype.insertTile = function (column) {
     return [row, parseInt(column)];
   }
   else {
-    console.log("Column filled up!!!");
     return false;
   }
 
@@ -94,7 +93,6 @@ Board.prototype._checkRight = function() {
                        this.matrix[row][column + 2],
                        this.matrix[row][column + 3])){
         this.winner = this.matrix[row][column];
-        console.log(this.winner);
       }
 };
 
@@ -103,7 +101,7 @@ Board.prototype.checkWinner = function() {
   if(!this.winner) this._checkDown();
   if(!this.winner) this._checkDownLeft();
   if(!this.winner) this._checkDownRight();
-  if (this.winner) {console.log("The winner is " + this.winner);}
+  if (this.winner) {return this.winner;}
 };
 
 Board.prototype.takeTurns = function () {
