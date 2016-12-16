@@ -24,7 +24,8 @@ h1 {
 }
 #game-board {
   background: #6C6C7D;
-  border-radius: 25px;
+  /*border-radius: 25px;*/
+  box-shadow: 1px 1px 10px 0 #999;
   padding: 15px;
 }
 #game-board {
@@ -65,7 +66,7 @@ h1 {
 }
 
 .tile-green {
-  background-color: #00760D;
+  background-color: #04FF8E;
 }
 
 .button {
