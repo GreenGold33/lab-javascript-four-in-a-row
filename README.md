@@ -13,6 +13,26 @@ After this learning unit, you will be able to:
 - Separate the logic of the game from the JavaScript DOM operations
 - Structure JavaScript files according to the game classes
 
+## Requirements
+
+- [Fork this repo](https://guides.github.com/activities/forking/)
+- Clone this repo into your `~/code/labs`
+
+## Submission
+
+Upon completion, run the following commands
+```
+$ git add .
+$ git commit -m "done"
+$ git push origin master
+```
+Navigate to your repo and create a Pull Request -from your master branch to the original repository master branch.
+In the Pull request name, add your name and last names separated by a dash "-"
+
+## Deliverables
+
+Write your JavaScript in the provided files.
+
 ## Introduction
 
 <iframe src="//giphy.com/embed/FGxy5NYhmH1ra" width="600" height="500" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
